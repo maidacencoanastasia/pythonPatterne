@@ -2,7 +2,6 @@ from queue import Queue
 import time
 import matplotlib.pyplot as plt
 import numpy as np
-from sympy import symbols, sympify, lambdify
 
 
 class Event:
@@ -26,7 +25,7 @@ class Reactor:
         self.handlers[event_name].append(handler)
 
     def remove_handler(self, event_name, handler):
-        if event_name in  self.handlers and handler in self.handlers[event_name]:
+        if event_name in self.handlers and handler in self.handlers[event_name]:
             self.handlers[event_name].remove(handler)
 
     def dispatch_event(self, event):
@@ -43,27 +42,35 @@ if __name__ == '__main__':
     reactor = Reactor()
 
 
-    class GraphHandler(EventHandler):
+    class Degree2GraphHandler(EventHandler):
         def handle_event(self, event):
-            equation = input("Enter an equation in terms of x: ")
-            try:
-                x = symbols('x')
-                expression = sympify(equation)
-                func = lambdify(x, expression, 'numpy')
-                x_vals = np.linspace(-10, 10, 400)
-                y_vals = func(x_vals)
-                plt.plot(x_vals, y_vals, label=f"y = {equation}")
-                plt.xlabel("x")
-                plt.ylabel("y")
-                plt.title(f"Graph of y = {equation}")
-                plt.legend()
-                plt.show()
-            except Exception as e:
-                print("Invalid equation. Please enter a valid equation.")
+            x = np.linspace(-10, 10, 400)
+            y = x ** 2
+            plt.plot(x, y, label="y = x^2")
+            plt.xlabel("x")
+            plt.ylabel("y")
+            plt.title("Graph of y = x^2")
+            plt.legend()
+            plt.show()
 
 
-    reactor.register_handler('Graph', GraphHandler())
+    class Degree3GraphHandler(EventHandler):
+        def handle_event(self, event):
+            x = np.linspace(-10, 10, 400)
+            y = x ** 3
+            plt.plot(x, y, label="y = x^3")
+            plt.xlabel("x")
+            plt.ylabel("y")
+            plt.title("Graph of y = x^3")
+            plt.legend()
+            plt.show()
 
-    event = Event('Graph', '')
 
-    reactor.dispatch_event(event)
+    reactor.register_handler('Degree2', Degree2GraphHandler())
+    reactor.register_handler('Degree3', Degree3GraphHandler())
+
+    event1 = Event('Degree2', '')
+    event2 = Event('Degree3', '')
+
+    reactor.dispatch_event(event1)
+    reactor.dispatch_event(event2)
