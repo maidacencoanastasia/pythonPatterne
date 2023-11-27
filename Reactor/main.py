@@ -26,7 +26,7 @@ class Reactor:
         self.handlers[event_name].append(handler)
 
     def remove_handler(self, event_name, handler):
-        if event_name in  self.handlers and handler in self.handlers[event_name]:
+        if event_name in self.handlers and handler in self.handlers[event_name]:
             self.handlers[event_name].remove(handler)
 
     def dispatch_event(self, event):
