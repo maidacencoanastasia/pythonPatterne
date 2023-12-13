@@ -19,13 +19,13 @@ class Paper(object):
     def draw(self, text):
         if self._count > 0:
             self._count -= 1
-            print text
+            print (text)
 
 
 class Printer(object):
     """Принтер"""
     def error(self, msg):
-        print 'Ошибка: %s' % msg
+        print ('Ошибка: %s' % msg)
 
     def print_(self, paper, text):
         if paper.get_count() > 0:

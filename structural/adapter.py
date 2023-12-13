@@ -38,7 +38,7 @@ class CatAdapter(Dog):
 
 
 dog = Dog('Тузик')
-print dog.bark()  # Тузик: гав-гав!
+print(dog.bark())  # Тузик: гав-гав!
 
 dog = CatAdapter('Тузик')
-print dog.bark()  # Тузик: мяу-мяу!
+print(dog.bark())  # Тузик: мяу-мяу!

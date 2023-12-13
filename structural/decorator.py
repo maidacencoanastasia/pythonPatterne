@@ -14,7 +14,7 @@ class Man(object):
         self._name = name
 
     def say(self):
-        print 'Привет! Меня зовут %s!' % self._name
+        print ('Привет! Меня зовут %s!' % self._name)
 
 
 class Jetpack(object):
@@ -27,7 +27,7 @@ class Jetpack(object):
 
     def fly(self):
         # расширяем функциональность объекта добавляя возможность летать
-        print '%s летит на реактивном ранце!' % self._man._name
+        print ('%s летит на реактивном ранце!' % self._man._name)
 
 
 man = Man('Виктор')

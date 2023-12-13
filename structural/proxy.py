@@ -37,13 +37,13 @@ class Image(ImageBase):
         self._height = int(height)
 
     def draw(self, x, y, color):
-        print 'Рисуем точку; координаты: (%d, %d); цвет: %s' % (x, y, color)
+        print ('Рисуем точку; координаты: (%d, %d); цвет: %s' % (x, y, color))
 
     def fill(self, color):
-        print 'Заливка цветом %s' % color
+        print ('Заливка цветом %s' % color)
 
     def save(self, filename):
-        print 'Сохраняем изображение в файл %s' % filename
+        print ('Сохраняем изображение в файл %s' % filename)
 
 
 class ImageProxy(ImageBase):

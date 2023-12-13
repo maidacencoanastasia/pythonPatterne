@@ -48,6 +48,6 @@ class Placemark(object):
 plmrk0 = Placemark(-74.007121, 40.714551, 'green')  # Нью-Йорк
 plmrk1 = Placemark(37.617761, 55.755773, 'green')  # Москва
 
-print plmrk0  # Цвет: green; Координаты: (-74.0071, 40.7146)
-print plmrk1  # Цвет: green; Координаты: (37.6178, 55.7558)
-print plmrk0._color is plmrk1._color  # True
+print (plmrk0)  # Цвет: green; Координаты: (-74.0071, 40.7146)
+print (plmrk1)  # Цвет: green; Координаты: (37.6178, 55.7558)
+print (plmrk0._color is plmrk1._color)  # True

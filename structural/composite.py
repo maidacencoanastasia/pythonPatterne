@@ -25,17 +25,17 @@ class Graphic(object):
 
 class Line(Graphic):
     def draw(self):
-        print 'Линия'
+        print('Линия')
 
 
 class Rectangle(Graphic):
     def draw(self):
-        print 'Прямоугольник'
+        print('Прямоугольник')
 
 
 class Text(Graphic):
     def draw(self):
-        print 'Текст'
+        print('Текст')
 
 
 class Picture(Graphic):
@@ -43,7 +43,7 @@ class Picture(Graphic):
         self._children = []
 
     def draw(self):
-        print 'Изображение'
+        print('Изображение')
         # вызываем отрисовку у вложенных объектов
         for obj in self._children:
             obj.draw()
